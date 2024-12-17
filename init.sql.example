@@ -1,0 +1,15 @@
+-- Active: 1714944430022@@127.0.0.1@5432@template_db
+CREATE DATABASE template_db;
+CREATE USER template_admin WITH PASSWORD '';
+ALTER ROLE template_admin SET client_encoding TO 'utf8';
+ALTER ROLE template_admin SET default_transaction_isolation TO 'read committed';
+ALTER ROLE template_admin SET timezone TO 'UTC';
+-- GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO template_admin;
+GRANT ALL PRIVILEGES ON DATABASE template_db TO template_admin;
+GRANT CONNECT ON DATABASE template_db TO template_admin;
+GRANT CREATE ON SCHEMA public TO template_admin;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO template_admin;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO template_admin;
+ALTER USER template_admin CREATEDB;
+ALTER USER template_admin CREATEROLE;
+ALTER DATABASE template_db OWNER TO template_admin;
